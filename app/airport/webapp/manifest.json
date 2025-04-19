@@ -1,0 +1,217 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "ns.airport",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.17.3",
+      "toolsId": "88eea88d-5a69-42e3-8ab4-133f6cc50a6f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/airport-web/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.134.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {},
+        "sap.f": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ns.airport.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {
+        "flexibleColumnLayout": {
+          "defaultTwoColumnLayoutType": "TwoColumnsBeginExpanded",
+          "defaultThreeColumnLayoutType": "ThreeColumnsMidExpanded"
+        },
+        "routerClass": "sap.f.routing.Router"
+      },
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "AirportsList",
+          "target": [
+            "AirportsList"
+          ]
+        },
+        {
+          "pattern": "Airports({key}):?query:",
+          "name": "AirportsObjectPage",
+          "target": [
+            "AirportsList",
+            "AirportsObjectPage"
+          ]
+        }
+      ],
+      "targets": {
+        "AirportsList": {
+          "type": "Component",
+          "id": "AirportsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Airports",
+              "variantManagement": "Page",
+              "navigation": {
+                "Airports": {
+                  "detail": {
+                    "route": "AirportsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  },
+                  "columns": {
+                    "DataField::icao": {
+                      "width": "4rem"
+                    },
+                    "DataField::iata": {
+                      "width": "4rem"
+                    },
+                    "DataField::name": {
+                      "width": "12rem"
+                    },
+                    "DataField::city": {
+                      "width": "12rem"
+                    },
+                    "DataField::state": {
+                      "width": "6rem"
+                    },
+                    "DataField::country": {
+                      "width": "6rem"
+                    },
+                    "DataField::elevation": {
+                      "width": "6rem"
+                    },
+                    "DataField::lat": {
+                      "width": "8rem"
+                    },
+                    "DataField::lon": {
+                      "width": "8rem"
+                    },
+                    "DataField::region": {
+                      "width": "8rem"
+                    },
+                    "DataField::tz": {
+                      "width": "auto"
+                    }
+                  }
+                }
+              },
+              "hideFilterBar": false,
+              "initialLoad": "Enabled",
+              "views": {
+                "paths": [
+                  {
+                    "primary": [
+                      {
+                        "annotationPath": "com.sap.vocabularies.UI.v1.Chart#alpChart"
+                      }
+                    ],
+                    "secondary": [
+                      {
+                        "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView"
+                      }
+                    ],
+                    "defaultPath": "both"
+                  }
+                ]
+              }
+            }
+          },
+          "controlAggregation": "beginColumnPages",
+          "contextPattern": ""
+        },
+        "AirportsObjectPage": {
+          "type": "Component",
+          "id": "AirportsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Airports"
+            }
+          },
+          "controlAggregation": "midColumnPages",
+          "contextPattern": "/Airports({key})"
+        }
+      }
+    },
+    "rootView": {
+      "viewName": "sap.fe.templates.RootContainer.view.Fcl",
+      "type": "XML",
+      "async": true,
+      "id": "appRootView"
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

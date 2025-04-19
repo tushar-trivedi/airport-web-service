@@ -1,0 +1,46 @@
+{
+  "name": "airport-web-service",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1",
+    "axios": "^1.8.4",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "chai-subset": "^1.6.0",
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-airport": "cds watch --open airport/webapp/index.html?sap-ui-xx-viewCache=false",
+    "test": "jest tests/test.js"
+  },
+  "cds": {
+    "requires": {
+      "[development]": {
+        "auth": {
+          "kind": "mocked",
+          "users": {
+            "tushar": {
+              "password": "tushar",
+              "roles": [
+                "authority"
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+  "sapux": [
+    "app/airport"
+  ]
+}
