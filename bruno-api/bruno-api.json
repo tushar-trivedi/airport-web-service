@@ -1,0 +1,166 @@
+{
+  "name": "bruno-api",
+  "version": "1",
+  "items": [
+    {
+      "type": "http",
+      "name": "All - Average Elevation per Country",
+      "filename": "All - Average Elevation per Country.bru",
+      "seq": 2,
+      "request": {
+        "url": "{{base-url}}averageElevationPerCountryAll",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "{{username}}",
+            "password": "{{password}}"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Particluar - Average Elevation per Country",
+      "filename": "Particluar - Average Elevation per Country.bru",
+      "seq": 3,
+      "request": {
+        "url": "{{base-url}}averageElevationPerCountry(country='US')",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "{{username}}",
+            "password": "{{password}}"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Airports Without IATA Codes",
+      "filename": "Airports Without IATA Codes.bru",
+      "seq": 4,
+      "request": {
+        "url": "{{base-url}}airportsWithoutIata",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "{{username}}",
+            "password": "{{password}}"
+          }
+        }
+      }
+    },
+    {
+      "type": "http",
+      "name": "Top 10 TimeZone",
+      "filename": "Top 10 TimeZone.bru",
+      "seq": 5,
+      "request": {
+        "url": "{{base-url}}top10Timezones",
+        "method": "GET",
+        "headers": [],
+        "params": [],
+        "body": {
+          "mode": "none",
+          "formUrlEncoded": [],
+          "multipartForm": [],
+          "file": []
+        },
+        "script": {},
+        "vars": {},
+        "assertions": [],
+        "tests": "",
+        "docs": "",
+        "auth": {
+          "mode": "basic",
+          "basic": {
+            "username": "{{username}}",
+            "password": "{{password}}"
+          }
+        }
+      }
+    }
+  ],
+  "activeEnvironmentUid": "9GUbxddi2httcUcp0GU4K",
+  "environments": [
+    {
+      "variables": [
+        {
+          "name": "base-url",
+          "value": "http://localhost:4004/odata/v4/airport-web/",
+          "enabled": true,
+          "secret": false,
+          "type": "text"
+        },
+        {
+          "name": "username",
+          "value": "",
+          "enabled": true,
+          "secret": true,
+          "type": "text"
+        },
+        {
+          "name": "password",
+          "value": "",
+          "enabled": true,
+          "secret": true,
+          "type": "text"
+        }
+      ],
+      "name": "local"
+    }
+  ],
+  "brunoConfig": {
+    "version": "1",
+    "name": "bruno-api",
+    "type": "collection",
+    "ignore": [
+      "node_modules",
+      ".git"
+    ],
+    "size": 0,
+    "filesCount": 0
+  }
+}

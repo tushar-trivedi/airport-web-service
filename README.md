@@ -114,6 +114,52 @@ Navigate to: [http://localhost:4004/](http://localhost:4004/)
 
 ---
 
+## Run Bash Script
+
+1. In the root directory, there is a `script` folder containing `analyze_airports.sh`. This script provides an alternative way to get results for the scripting tasks.
+
+2. First, make the file executable. While in the root directory, run the following command:
+
+```bash
+chmod +x script/analyze_airports.sh
+```
+
+3. Now, execute the script to get the results:
+
+```bash
+./script/analyze_airports.sh
+```
+
+**Execution:**  
+*![script-results](images/script-results.png)*
+
+---
+
+## Running API Scripts with Bruno
+
+- **Use the Bruno API collection to get the results**
+
+1. **Prerequisite:** Install Bruno  
+2. **Import the collection:** `bruno-api.json` from the `bruno-api` folder  
+3. **Set the environment:** Choose the local environment  
+4. **Authorization Note:** If you face any issues with authorization, set the username and password as specified in `package.json`
+
+**Run all the API endpoints to get the results:**
+
+- **Calculate Average Elevation per Country:**  
+  *![elevationAll](images/elevationAll.png)*
+
+- **Find Airports Without IATA Codes:**  
+  *![noIATA](images/noIATA.png)*
+
+- **Determine the 10 Most Common Time Zones:**  
+  *![TopTZ](images/TopTZ.png)*
+
+- **Calculate Average Elevation per Country** *(for a particular country)*  
+  *![elevationParticular](images/elevationParticular.png)*
+
+---
+
 ## Learn More
 
 To learn more about CAP, visit:  
